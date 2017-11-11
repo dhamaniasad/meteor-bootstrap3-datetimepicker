@@ -6,13 +6,11 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
-    api.versionsFrom('METEOR@1.2');
+    api.versionsFrom('METEOR@1.5');
 
     api.use('jquery');
     api.use('momentjs:moment@2.13.1');
+    api.use('dynamic-import');
 
-    api.addFiles([
-      'lib/css/bootstrap-datetimepicker.css', // Add Date Time Picker CSS and JS files
-      'lib/js/bootstrap-datetimepicker.js',
-    ], 'client');
+    api.mainModule('main.js', "client", {lazy: true});
 });
